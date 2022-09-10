@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/ui/menu">
+
+    <menu id="application" caption="msg://ru.abdrus.cheburashka/menu.application">
+    </menu>
+    <menu id="administration" caption="msg://ru.abdrus.cheburashka/menu.administration">
+        <item screen="cbr_User.browse" caption="msg://ru.abdrus.cheburashka.screen.user/UserBrowse.caption"/>
+        <item screen="entityInspector.browse" caption="msg://ru.abdrus.cheburashka/menu.entityInspector"/>
+    </menu>
+
+</menu-config>
