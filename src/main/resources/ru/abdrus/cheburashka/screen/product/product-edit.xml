@@ -12,6 +12,24 @@
             </fetchPlan>
             <loader/>
         </instance>
+        <collection id="measurementUnitDc"
+                    class="ru.abdrus.cheburashka.entity.MeasurementUnit"
+                    fetchPlan="_base">
+            <loader id="measurementUnitDl">
+                <query>
+                    <![CDATA[select e from cbr_MeasurementUnit e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="productTypeDc"
+                    class="ru.abdrus.cheburashka.entity.ProductType"
+                    fetchPlan="_base">
+            <loader id="productTypeDl">
+                <query>
+                    <![CDATA[select e from cbr_ProductType e]]>
+                </query>
+            </loader>
+        </collection>
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
@@ -34,18 +52,8 @@
                 <column width="350px">
                     <textField id="nameField" property="name"/>
                     <textField id="shortNameField" property="shortName"/>
-                    <entityPicker id="measurementUnitField" property="measurementUnit">
-                        <actions>
-                            <action id="entityLookup" type="entity_lookup"/>
-                            <action id="entityClear" type="entity_clear"/>
-                        </actions>
-                    </entityPicker>
-                    <entityPicker id="typeField" property="type">
-                        <actions>
-                            <action id="entityLookup" type="entity_lookup"/>
-                            <action id="entityClear" type="entity_clear"/>
-                        </actions>
-                    </entityPicker>
+                    <entityComboBox id="measurementUnitField" optionsContainer="measurementUnitDc" property="measurementUnit"/>
+                    <entityComboBox id="typeField" property="type" optionsContainer="productTypeDc"/>
                     <textField id="normForDayField" property="normForDay"/>
                     <textField id="priceField" property="price"/>
                     <textField id="countField" property="count"/>

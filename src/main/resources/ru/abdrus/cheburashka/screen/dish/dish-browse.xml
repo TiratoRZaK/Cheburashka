@@ -51,10 +51,11 @@
             <columns>
                 <column id="name"/>
                 <column id="norm"/>
-                <column id="foodDetails.proteins"/>
-                <column id="foodDetails.fats"/>
-                <column id="foodDetails.carbohydrates"/>
-                <column id="foodDetails.vitaminC"/>
+                <column id="productList" caption="msg://productList.caption" maxTextLength="200"/>
+                <column id="foodDetails.proteins" collapsed="true"/>
+                <column id="foodDetails.fats" collapsed="true"/>
+                <column id="foodDetails.carbohydrates" collapsed="true"/>
+                <column id="foodDetails.vitaminC" collapsed="true"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
