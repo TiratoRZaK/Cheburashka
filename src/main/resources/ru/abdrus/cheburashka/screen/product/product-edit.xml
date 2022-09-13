@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://productEdit.caption"
+        focusComponent="form">
+    <data>
+        <instance id="productDc"
+                  class="ru.abdrus.cheburashka.entity.Product">
+            <fetchPlan extends="_base">
+                <property name="measurementUnit" fetchPlan="_base"/>
+                <property name="type" fetchPlan="_base"/>
+                <property name="foodDetails" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="windowCommitAndClose" caption="msg:///actions.Ok"
+                icon="EDITOR_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="windowClose"
+                caption="msg:///actions.Close"
+                icon="EDITOR_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true" expand="scrollBox">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="productDc">
+                <column width="350px">
+                    <textField id="nameField" property="name"/>
+                    <textField id="shortNameField" property="shortName"/>
+                    <entityPicker id="measurementUnitField" property="measurementUnit">
+                        <actions>
+                            <action id="entityLookup" type="entity_lookup"/>
+                            <action id="entityClear" type="entity_clear"/>
+                        </actions>
+                    </entityPicker>
+                    <entityPicker id="typeField" property="type">
+                        <actions>
+                            <action id="entityLookup" type="entity_lookup"/>
+                            <action id="entityClear" type="entity_clear"/>
+                        </actions>
+                    </entityPicker>
+                    <textField id="normForDayField" property="normForDay"/>
+                    <textField id="priceField" property="price"/>
+                    <textField id="countField" property="count"/>
+                    <textField id="foodDetailsProteinsField" property="foodDetails.proteins"/>
+                    <textField id="foodDetailsFatsField" property="foodDetails.fats"/>
+                    <textField id="foodDetailsCarbohydratesField" property="foodDetails.carbohydrates"/>
+                    <textField id="foodDetailsVitaminCField" property="foodDetails.vitaminC"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

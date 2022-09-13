@@ -2,6 +2,17 @@
 <menu-config xmlns="http://jmix.io/schema/ui/menu">
 
     <menu id="application" caption="msg://ru.abdrus.cheburashka/menu.application">
+        <item screen="cbr_Product.browse" caption="msg://ru.abdrus.cheburashka.screen.product/productBrowse.menu"/>
+        <item screen="cbr_Dish.browse" caption="msg://ru.abdrus.cheburashka.screen.dish/dishBrowse.menu"/>
+        <item screen="cbr_MenuSample.browse"
+              caption="msg://ru.abdrus.cheburashka.screen.menusample/menuSampleBrowse.menu"/>
+        <separator />
+    </menu>
+    <menu id="systemManagement" caption="msg://ru.abdrus.cheburashka/menu.systemManagement">
+        <item screen="cbr_MeasurementUnit.browse"
+              caption="msg://ru.abdrus.cheburashka.screen.measurementunit/measurementUnitBrowse.menu"/>
+        <item screen="cbr_ProductType.browse"
+              caption="msg://ru.abdrus.cheburashka.screen.producttype/productTypeBrowse.menu"/>
     </menu>
     <menu id="administration" caption="msg://ru.abdrus.cheburashka/menu.administration">
         <item screen="cbr_User.browse" caption="msg://ru.abdrus.cheburashka.screen.user/UserBrowse.caption"/>

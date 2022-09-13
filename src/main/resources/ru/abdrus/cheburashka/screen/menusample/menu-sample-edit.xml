@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://menuSampleEdit.caption"
+        focusComponent="dishBox">
+    <data>
+        <instance id="menuSampleDc"
+                  class="ru.abdrus.cheburashka.entity.MenuSample">
+            <fetchPlan extends="_base">
+                <property name="breakfast" fetchPlan="_base"/>
+                <property name="lunch" fetchPlan="_base"/>
+                <property name="snack" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader/>
+            <collection id="breakfastDc" property="breakfast"/>
+            <collection id="lunchDc" property="lunch"/>
+            <collection id="snackDc" property="snack"/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="windowCommitAndClose" caption="msg:///actions.Ok"
+                icon="EDITOR_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="windowClose"
+                caption="msg:///actions.Close"
+                icon="EDITOR_CANCEL"/>
+    </actions>
+    <layout spacing="true" expand="separate">
+        <hbox id="nameBox" spacing="true">
+            <label id="nameLabel" value="msg://nameField.caption" align="MIDDLE_LEFT"/>
+            <textField id="nameField" property="name" dataContainer="menuSampleDc"/>
+        </hbox>
+        <groupBox id="dishBox" caption="msg://dishBox.caption" expand="dishBoxTables">
+            <hbox id="dishBoxTables" width="100%" spacing="true">
+                <table id="breakfastTable" dataContainer="breakfastDc" height="100%" width="100%"
+                       caption="msg://breakfastTable.caption" stylename="small no-stripes">
+                    <actions>
+                        <action id="add" type="add"/>
+                        <action id="exclude" type="exclude"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                        <column id="norm"/>
+                    </columns>
+                    <simplePagination/>
+                    <buttonsPanel>
+                        <button action="breakfastTable.add"/>
+                        <button action="breakfastTable.exclude"/>
+                    </buttonsPanel>
+                </table>
+                <table id="lunchTable" dataContainer="lunchDc" height="100%" width="100%"
+                       stylename="small no-stripes" caption="msg://lunchTable.caption">
+                    <actions>
+                        <action id="add" type="add"/>
+                        <action id="exclude" type="exclude"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                        <column id="norm"/>
+                    </columns>
+                    <simplePagination/>
+                    <buttonsPanel>
+                        <button action="lunchTable.add"/>
+                        <button action="lunchTable.exclude"/>
+                    </buttonsPanel>
+                </table>
+                <table id="snackTable" dataContainer="snackDc" height="100%" width="100%"
+                       stylename="small no-stripes" caption="msg://snackTable.caption">
+                    <actions>
+                        <action id="add" type="add"/>
+                        <action id="exclude" type="exclude"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                        <column id="norm"/>
+                    </columns>
+                    <simplePagination/>
+                    <buttonsPanel>
+                        <button action="snackTable.add"/>
+                        <button action="snackTable.exclude"/>
+                    </buttonsPanel>
+                </table>
+            </hbox>
+        </groupBox>
+        <label id="separate"/>
+        <hbox id="editActions" spacing="true" align="BOTTOM_LEFT">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
