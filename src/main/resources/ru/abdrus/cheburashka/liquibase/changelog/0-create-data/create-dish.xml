@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="cbr">
+        <createTable tableName="CBR_DISH">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBR_DISH"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NORM" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+            <column name="FOOD_DETAILS_PROTEINS" type="INT"/>
+            <column name="FOOD_DETAILS_FATS" type="INT"/>
+            <column name="FOOD_DETAILS_CARBOHYDRATES" type="INT"/>
+            <column name="FOOD_DETAILS_VITAMIN_C" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="cbr">
+        <createTable tableName="CBR_MEASUREMENT_UNIT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBR_MEASUREMENT_UNIT"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="cbr">
+        <createTable tableName="CBR_MENU_SAMPLE">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBR_MENU_SAMPLE"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="cbr">
+        <createTable tableName="CBR_MENU_SAMPLE_DISH_LINK">
+            <column name="DISH_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBR_MENU_SAMPLE_DISH_LINK"/>
+            </column>
+            <column name="MENU_SAMPLE_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBR_MENU_SAMPLE_DISH_LINK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="5" author="cbr">
+        <createTable tableName="CBR_PRODUCT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBR_PRODUCT"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SHORT_NAME" type="VARCHAR(255)"/>
+            <column name="MEASUREMENT_UNIT_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TYPE_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NORM_FOR_DAY" type="INT"/>
+            <column name="PRICE" type="INT"/>
+            <column name="COUNT_" type="INT"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+            <column name="FOOD_DETAILS_PROTEINS" type="INT"/>
+            <column name="FOOD_DETAILS_FATS" type="INT"/>
+            <column name="FOOD_DETAILS_CARBOHYDRATES" type="INT"/>
+            <column name="FOOD_DETAILS_VITAMIN_C" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="6" author="cbr">
+        <createTable tableName="CBR_PRODUCT_ITEM">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBR_PRODUCT_ITEM"/>
+            </column>
+            <column name="DISH_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRODUCT_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NORM" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="7" author="cbr">
+        <createTable tableName="CBR_PRODUCT_TYPE">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBR_PRODUCT_TYPE"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="8" author="cbr">
+        <createIndex indexName="IDX_CBRPRODUCT_MEASUREMENTUNIT" tableName="CBR_PRODUCT">
+            <column name="MEASUREMENT_UNIT_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="MEASUREMENT_UNIT_ID" baseTableName="CBR_PRODUCT"
+                                 constraintName="FK_CBRPRODUCT_ON_MEASUREMENTUN" referencedColumnNames="ID"
+                                 referencedTableName="CBR_MEASUREMENT_UNIT"/>
+    </changeSet>
+    <changeSet id="9" author="cbr">
+        <createIndex indexName="IDX_CBR_PRODUCT_ITEM_DISH" tableName="CBR_PRODUCT_ITEM">
+            <column name="DISH_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="DISH_ID" baseTableName="CBR_PRODUCT_ITEM"
+                                 constraintName="FK_CBR_PRODUCT_ITEM_ON_DISH" referencedColumnNames="ID"
+                                 referencedTableName="CBR_DISH"/>
+    </changeSet>
+    <changeSet id="10" author="cbr">
+        <createIndex indexName="IDX_CBR_PRODUCT_ITEM_PRODUCT" tableName="CBR_PRODUCT_ITEM">
+            <column name="PRODUCT_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="PRODUCT_ID" baseTableName="CBR_PRODUCT_ITEM"
+                                 constraintName="FK_CBR_PRODUCT_ITEM_ON_PRODUCT" referencedColumnNames="ID"
+                                 referencedTableName="CBR_PRODUCT"/>
+    </changeSet>
+    <changeSet id="11" author="cbr">
+        <createIndex indexName="IDX_CBR_PRODUCT_TYPE" tableName="CBR_PRODUCT">
+            <column name="TYPE_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="TYPE_ID" baseTableName="CBR_PRODUCT"
+                                 constraintName="FK_CBR_PRODUCT_ON_TYPE" referencedColumnNames="ID"
+                                 referencedTableName="CBR_PRODUCT_TYPE"/>
+    </changeSet>
+    <changeSet id="12" author="cbr">
+        <addForeignKeyConstraint baseColumnNames="DISH_ID" baseTableName="CBR_MENU_SAMPLE_DISH_LINK"
+                                 constraintName="FK_CBRMENSAMDIS_ON_DISH" referencedColumnNames="ID"
+                                 referencedTableName="CBR_DISH"/>
+    </changeSet>
+    <changeSet id="13" author="cbr">
+        <addForeignKeyConstraint baseColumnNames="MENU_SAMPLE_ID" baseTableName="CBR_MENU_SAMPLE_DISH_LINK"
+                                 constraintName="FK_CBRMENSAMDIS_ON_MENU_SAMPLE" referencedColumnNames="ID"
+                                 referencedTableName="CBR_MENU_SAMPLE"/>
+    </changeSet>
+</databaseChangeLog>

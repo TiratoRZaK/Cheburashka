@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="cbr">
+        <createTable tableName="CBR_MENU_SAMPLE_DISH_BREAKFAST_LINK">
+            <column name="DISH_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBRMENUSAMPLEDISHBREAKFASTL"/>
+            </column>
+            <column name="MENU_SAMPLE_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBRMENUSAMPLEDISHBREAKFASTL"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="cbr">
+        <createTable tableName="CBR_MENU_SAMPLE_DISH_LUNCH_LINK">
+            <column name="DISH_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBRMENUSAMPLEDISHLUNCHLINK"/>
+            </column>
+            <column name="MENU_SAMPLE_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBRMENUSAMPLEDISHLUNCHLINK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="cbr">
+        <createTable tableName="CBR_MENU_SAMPLE_DISH_SNACK_LINK">
+            <column name="DISH_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBRMENUSAMPLEDISHSNACKLINK"/>
+            </column>
+            <column name="MENU_SAMPLE_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CBRMENUSAMPLEDISHSNACKLINK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="cbr">
+        <addForeignKeyConstraint baseColumnNames="DISH_ID" baseTableName="CBR_MENU_SAMPLE_DISH_BREAKFAST_LINK"
+                                 constraintName="FK_CBRMENSAMDISBRE_ON_DISH" referencedColumnNames="ID"
+                                 referencedTableName="CBR_DISH"/>
+    </changeSet>
+    <changeSet id="5" author="cbr">
+        <addForeignKeyConstraint baseColumnNames="MENU_SAMPLE_ID" baseTableName="CBR_MENU_SAMPLE_DISH_BREAKFAST_LINK"
+                                 constraintName="FK_CBRMENSAMDISB_ON_MENUSAMPLE" referencedColumnNames="ID"
+                                 referencedTableName="CBR_MENU_SAMPLE"/>
+    </changeSet>
+    <changeSet id="6" author="cbr">
+        <addForeignKeyConstraint baseColumnNames="DISH_ID" baseTableName="CBR_MENU_SAMPLE_DISH_LUNCH_LINK"
+                                 constraintName="FK_CBRMENSAMDISLUN_ON_DISH" referencedColumnNames="ID"
+                                 referencedTableName="CBR_DISH"/>
+    </changeSet>
+    <changeSet id="7" author="cbr">
+        <addForeignKeyConstraint baseColumnNames="MENU_SAMPLE_ID" baseTableName="CBR_MENU_SAMPLE_DISH_LUNCH_LINK"
+                                 constraintName="FK_CBRMENSAMDISL_ON_MENUSAMPLE" referencedColumnNames="ID"
+                                 referencedTableName="CBR_MENU_SAMPLE"/>
+    </changeSet>
+    <changeSet id="8" author="cbr">
+        <addForeignKeyConstraint baseColumnNames="DISH_ID" baseTableName="CBR_MENU_SAMPLE_DISH_SNACK_LINK"
+                                 constraintName="FK_CBRMENSAMDISSNA_ON_DISH" referencedColumnNames="ID"
+                                 referencedTableName="CBR_DISH"/>
+    </changeSet>
+    <changeSet id="9" author="cbr">
+        <addForeignKeyConstraint baseColumnNames="MENU_SAMPLE_ID" baseTableName="CBR_MENU_SAMPLE_DISH_SNACK_LINK"
+                                 constraintName="FK_CBRMENSAMDISS_ON_MENUSAMPLE" referencedColumnNames="ID"
+                                 referencedTableName="CBR_MENU_SAMPLE"/>
+    </changeSet>
+    <changeSet id="10" author="cbr">
+        <dropForeignKeyConstraint baseTableName="CBR_MENU_SAMPLE_DISH_LINK" constraintName="FK_CBRMENSAMDIS_ON_DISH"/>
+    </changeSet>
+    <changeSet id="11" author="cbr">
+        <dropForeignKeyConstraint baseTableName="CBR_MENU_SAMPLE_DISH_LINK"
+                                  constraintName="FK_CBRMENSAMDIS_ON_MENU_SAMPLE"/>
+    </changeSet>
+    <changeSet id="12" author="cbr">
+        <dropTable cascadeConstraints="true" tableName="CBR_MENU_SAMPLE_DISH_LINK"/>
+    </changeSet>
+</databaseChangeLog>
